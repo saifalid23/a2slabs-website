@@ -4,19 +4,21 @@ import { useState } from "react";
 
 export default function ContactForm() {
     const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+
     const [formData, setFormData] = useState({
         fullName: "",
         workEmail: "",
         companyName: "",
         staffSize: "",
-        industry: "",
         annualRevenue: "",
         painPoint: "",
         serviceNeeded: "",
         timeline: "",
     });
 
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const handleChange = (
+        e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+    ) => {
         const { name, value } = e.target;
         setFormData((prev) => ({ ...prev, [name]: value }));
     };
@@ -25,15 +27,23 @@ export default function ContactForm() {
         e.preventDefault();
         setStatus("loading");
 
-        const webhookUrl = process.env.NEXT_PUBLIC_WEBHOOK_URL || "https://example.com/webhook";
+        const webhookUrl =
+            process.env.NEXT_PUBLIC_WEBHOOK_URL ||
+            "https://script.google.com/macros/s/AKfycbxt4HR3CnGlsnSpppdUreoGOa3pVyaa3olLtmltdWyybwfZR8etBo0RdSXxx3AyhIEa/exec";
 
         try {
             const response = await fetch(webhookUrl, {
                 method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify(formData),
+                body: new URLSearchParams({
+                    fullName: formData.fullName,
+                    workEmail: formData.workEmail,
+                    companyName: formData.companyName,
+                    staffSize: formData.staffSize,
+                    annualRevenue: formData.annualRevenue,
+                    painPoint: formData.painPoint,
+                    serviceNeeded: formData.serviceNeeded,
+                    timeline: formData.timeline,
+                }),
             });
 
             if (response.ok) {
@@ -43,7 +53,6 @@ export default function ContactForm() {
                     workEmail: "",
                     companyName: "",
                     staffSize: "",
-                    industry: "",
                     annualRevenue: "",
                     painPoint: "",
                     serviceNeeded: "",
@@ -63,38 +72,27 @@ export default function ContactForm() {
             <div className="container mx-auto px-6 md:px-12">
                 <div className="grid gap-24 lg:grid-cols-2">
                     <div>
-                        <h2 className="mb-4 text-sm font-semibold uppercase tracking-widest text-zinc-500">Contact Us</h2>
+                        <h2 className="mb-4 text-sm font-semibold uppercase tracking-widest text-zinc-500">
+                            Contact Us
+                        </h2>
                         <h3 className="mb-8 text-4xl font-bold tracking-tight text-white md:text-5xl">
-                            Ready to scale your <br /> secure intelligence?
+                            Let’s build systems that save you time.
                         </h3>
                         <p className="mb-12 text-lg text-zinc-400">
-                            Submit the form to schedule a technical consultation with our engineering team.
+                            Tell us about your operations and current challenges.
                             We typically respond within 24 hours.
                         </p>
-
-                        <div className="space-y-6">
-                            <div className="flex items-center space-x-4">
-                                <div className="h-2 w-2 rounded-full bg-zinc-500"></div>
-                                <span className="text-zinc-300">London • San Francisco • Singapore</span>
-                            </div>
-                            <div className="flex items-center space-x-4">
-                                <div className="h-2 w-2 rounded-full bg-zinc-500"></div>
-                                <span className="text-zinc-300">inquiry@a2slabs.com</span>
-                            </div>
-                        </div>
                     </div>
 
                     <div className="rounded-3xl border border-zinc-900 bg-zinc-950 p-8 md:p-12">
                         {status === "success" ? (
                             <div className="flex h-full flex-col items-center justify-center py-12 text-center">
-                                <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-zinc-800 text-white">
-                                    <svg className="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                                    </svg>
-                                </div>
-                                <h4 className="mb-4 text-2xl font-bold text-white">Inquiry Received</h4>
+                                <h4 className="mb-4 text-2xl font-bold text-white">
+                                    Inquiry Received
+                                </h4>
                                 <p className="text-zinc-500">
-                                    Thank you for your interest. One of our engineers will be in touch shortly.
+                                    Thanks for reaching out. We’ll review your
+                                    details and respond shortly.
                                 </p>
                                 <button
                                     onClick={() => setStatus("idle")}
@@ -106,167 +104,99 @@ export default function ContactForm() {
                         ) : (
                             <form onSubmit={handleSubmit} className="space-y-6">
                                 <div className="grid gap-6 md:grid-cols-2">
-                                    <div className="space-y-2">
-                                        <label htmlFor="fullName" className="text-xs font-semibold uppercase tracking-widest text-zinc-500">
-                                            Full Name *
-                                        </label>
-                                        <input
-                                            required
-                                            type="text"
-                                            id="fullName"
-                                            name="fullName"
-                                            value={formData.fullName}
-                                            onChange={handleChange}
-                                            className="w-full rounded-lg border border-zinc-800 bg-black px-4 py-3 text-white transition-colors focus:border-zinc-500 focus:outline-none"
-                                        />
-                                    </div>
-                                    <div className="space-y-2">
-                                        <label htmlFor="workEmail" className="text-xs font-semibold uppercase tracking-widest text-zinc-500">
-                                            Work Email *
-                                        </label>
-                                        <input
-                                            required
-                                            type="email"
-                                            id="workEmail"
-                                            name="workEmail"
-                                            value={formData.workEmail}
-                                            onChange={handleChange}
-                                            className="w-full rounded-lg border border-zinc-800 bg-black px-4 py-3 text-white transition-colors focus:border-zinc-500 focus:outline-none"
-                                        />
-                                    </div>
-                                </div>
-
-                                <div className="grid gap-6 md:grid-cols-2">
-                                    <div className="space-y-2">
-                                        <label htmlFor="companyName" className="text-xs font-semibold uppercase tracking-widest text-zinc-500">
-                                            Company Name
-                                        </label>
-                                        <input
-                                            type="text"
-                                            id="companyName"
-                                            name="companyName"
-                                            value={formData.companyName}
-                                            onChange={handleChange}
-                                            className="w-full rounded-lg border border-zinc-800 bg-black px-4 py-3 text-white transition-colors focus:border-zinc-500 focus:outline-none"
-                                        />
-                                    </div>
-                                    <div className="space-y-2">
-                                        <label htmlFor="staffSize" className="text-xs font-semibold uppercase tracking-widest text-zinc-500">
-                                            Staff Size
-                                        </label>
-                                        <select
-                                            id="staffSize"
-                                            name="staffSize"
-                                            value={formData.staffSize}
-                                            onChange={handleChange}
-                                            className="w-full rounded-lg border border-zinc-800 bg-black px-4 py-3 text-white transition-colors focus:border-zinc-500 focus:outline-none"
-                                        >
-                                            <option value="">Select size</option>
-                                            <option value="1-10">1-10</option>
-                                            <option value="11-50">11-50</option>
-                                            <option value="51-200">51-200</option>
-                                            <option value="200+">200+</option>
-                                        </select>
-                                    </div>
-                                </div>
-
-                                <div className="grid gap-6 md:grid-cols-2">
-                                    <div className="space-y-2">
-                                        <label htmlFor="industry" className="text-xs font-semibold uppercase tracking-widest text-zinc-500">
-                                            Industry
-                                        </label>
-                                        <input
-                                            type="text"
-                                            id="industry"
-                                            name="industry"
-                                            value={formData.industry}
-                                            onChange={handleChange}
-                                            className="w-full rounded-lg border border-zinc-800 bg-black px-4 py-3 text-white transition-colors focus:border-zinc-500 focus:outline-none"
-                                        />
-                                    </div>
-                                    <div className="space-y-2">
-                                        <label htmlFor="annualRevenue" className="text-xs font-semibold uppercase tracking-widest text-zinc-500">
-                                            Annual Revenue
-                                        </label>
-                                        <select
-                                            id="annualRevenue"
-                                            name="annualRevenue"
-                                            value={formData.annualRevenue}
-                                            onChange={handleChange}
-                                            className="w-full rounded-lg border border-zinc-800 bg-black px-4 py-3 text-white transition-colors focus:border-zinc-500 focus:outline-none"
-                                        >
-                                            <option value="">Select range</option>
-                                            <option value="<$1M">&lt;$1M</option>
-                                            <option value="$1M-$10M">$1M-$10M</option>
-                                            <option value="$10M-$50M">$10M-$50M</option>
-                                            <option value="$50M+">$50M+</option>
-                                        </select>
-                                    </div>
-                                </div>
-
-                                <div className="space-y-2">
-                                    <label htmlFor="painPoint" className="text-xs font-semibold uppercase tracking-widest text-zinc-500">
-                                        Primary Pain Point *
-                                    </label>
-                                    <textarea
+                                    <input
                                         required
-                                        id="painPoint"
-                                        name="painPoint"
-                                        rows={4}
-                                        value={formData.painPoint}
+                                        type="text"
+                                        name="fullName"
+                                        placeholder="Full Name *"
+                                        value={formData.fullName}
                                         onChange={handleChange}
-                                        className="w-full rounded-lg border border-zinc-800 bg-black px-4 py-3 text-white transition-colors focus:border-zinc-500 focus:outline-none"
-                                    ></textarea>
+                                        className="w-full rounded-lg border border-zinc-800 bg-black px-4 py-3 text-white focus:border-zinc-500 focus:outline-none"
+                                    />
+
+                                    <input
+                                        required
+                                        type="email"
+                                        name="workEmail"
+                                        placeholder="Work Email *"
+                                        value={formData.workEmail}
+                                        onChange={handleChange}
+                                        className="w-full rounded-lg border border-zinc-800 bg-black px-4 py-3 text-white focus:border-zinc-500 focus:outline-none"
+                                    />
                                 </div>
 
                                 <div className="grid gap-6 md:grid-cols-2">
-                                    <div className="space-y-2">
-                                        <label htmlFor="serviceNeeded" className="text-xs font-semibold uppercase tracking-widest text-zinc-500">
-                                            Service Needed
-                                        </label>
-                                        <select
-                                            id="serviceNeeded"
-                                            name="serviceNeeded"
-                                            value={formData.serviceNeeded}
-                                            onChange={handleChange}
-                                            className="w-full rounded-lg border border-zinc-800 bg-black px-4 py-3 text-white transition-colors focus:border-zinc-500 focus:outline-none"
-                                        >
-                                            <option value="">Select service</option>
-                                            <option value="AI">AI Automation</option>
-                                            <option value="Security">Security Engineering</option>
-                                            <option value="Both">Both</option>
-                                        </select>
-                                    </div>
-                                    <div className="space-y-2">
-                                        <label htmlFor="timeline" className="text-xs font-semibold uppercase tracking-widest text-zinc-500">
-                                            Timeline
-                                        </label>
-                                        <select
-                                            id="timeline"
-                                            name="timeline"
-                                            value={formData.timeline}
-                                            onChange={handleChange}
-                                            className="w-full rounded-lg border border-zinc-800 bg-black px-4 py-3 text-white transition-colors focus:border-zinc-500 focus:outline-none"
-                                        >
-                                            <option value="">Select timeline</option>
-                                            <option value="ASAP">ASAP</option>
-                                            <option value="1-3 months">1-3 months</option>
-                                            <option value="Exploring">Exploring</option>
-                                        </select>
-                                    </div>
+                                    <input
+                                        type="text"
+                                        name="companyName"
+                                        placeholder="Company Name"
+                                        value={formData.companyName}
+                                        onChange={handleChange}
+                                        className="w-full rounded-lg border border-zinc-800 bg-black px-4 py-3 text-white focus:border-zinc-500 focus:outline-none"
+                                    />
+
+                                    <select
+                                        name="staffSize"
+                                        value={formData.staffSize}
+                                        onChange={handleChange}
+                                        className="w-full rounded-lg border border-zinc-800 bg-black px-4 py-3 text-white focus:border-zinc-500 focus:outline-none"
+                                    >
+                                        <option value="">Staff Size</option>
+                                        <option value="1-10">1-10</option>
+                                        <option value="11-50">11-50</option>
+                                        <option value="51-200">51-200</option>
+                                        <option value="200+">200+</option>
+                                    </select>
                                 </div>
+
+                                <select
+                                    name="annualRevenue"
+                                    value={formData.annualRevenue}
+                                    onChange={handleChange}
+                                    className="w-full rounded-lg border border-zinc-800 bg-black px-4 py-3 text-white focus:border-zinc-500 focus:outline-none"
+                                >
+                                    <option value="">Annual Revenue</option>
+                                    <option value="<$1M">&lt;$1M</option>
+                                    <option value="$1M-$10M">$1M-$10M</option>
+                                    <option value="$10M+">$10M+</option>
+                                </select>
+
+                                <textarea
+                                    required
+                                    name="painPoint"
+                                    rows={4}
+                                    placeholder="Describe your operational challenge *"
+                                    value={formData.painPoint}
+                                    onChange={handleChange}
+                                    className="w-full rounded-lg border border-zinc-800 bg-black px-4 py-3 text-white focus:border-zinc-500 focus:outline-none"
+                                />
+
+                                {/* ✅ Timeline Field Restored */}
+                                <select
+                                    name="timeline"
+                                    value={formData.timeline}
+                                    onChange={handleChange}
+                                    className="w-full rounded-lg border border-zinc-800 bg-black px-4 py-3 text-white focus:border-zinc-500 focus:outline-none"
+                                >
+                                    <option value="">Project Timeline</option>
+                                    <option value="ASAP">ASAP</option>
+                                    <option value="1-3 months">1-3 months</option>
+                                    <option value="Exploring options">Exploring options</option>
+                                </select>
 
                                 <button
                                     disabled={status === "loading"}
                                     type="submit"
                                     className="w-full rounded-full bg-white px-8 py-4 text-sm font-bold text-black transition-all hover:bg-zinc-200 disabled:opacity-50"
                                 >
-                                    {status === "loading" ? "Processing..." : "Submit Inquiry"}
+                                    {status === "loading"
+                                        ? "Processing..."
+                                        : "Submit Inquiry"}
                                 </button>
 
                                 {status === "error" && (
                                     <p className="text-center text-sm text-red-500">
-                                        An error occurred. Please try again or email us directly.
+                                        An error occurred. Please try again.
                                     </p>
                                 )}
                             </form>
