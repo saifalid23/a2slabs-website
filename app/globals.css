@@ -26,33 +26,80 @@ body {
 }
 
 @keyframes shield-pulse {
-  0%, 100% { opacity: 0.6; }
-  50% { opacity: 0.8; }
+
+  0%,
+  100% {
+    opacity: 0.6;
+  }
+
+  50% {
+    opacity: 0.8;
+  }
 }
 
 @keyframes line-flow {
-  0% { transform: translateX(-20px); opacity: 0; }
-  20% { opacity: 0.4; }
-  80% { opacity: 0.4; }
-  100% { transform: translateX(20px); opacity: 0; }
+  0% {
+    transform: translateX(-20px);
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 0.4;
+  }
+
+  80% {
+    opacity: 0.4;
+  }
+
+  100% {
+    transform: translateX(20px);
+    opacity: 0;
+  }
 }
 
 @keyframes crane-swing {
-  0%, 100% { transform: rotate(-1.5deg); }
-  50% { transform: rotate(1.5deg); }
+
+  0%,
+  100% {
+    transform: rotate(-1.5deg);
+  }
+
+  50% {
+    transform: rotate(1.5deg);
+  }
 }
 
 @keyframes block-lift {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-4px); }
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-4px);
+  }
 }
 
-.animate-shield-pulse { animation: shield-pulse 8s ease-in-out infinite; }
-.animate-line-flow { animation: line-flow 10s linear infinite; }
-.animate-crane-swing { animation: crane-swing 12s ease-in-out infinite; transform-origin: 40px 40px; }
-.animate-block-lift { animation: block-lift 8s ease-in-out infinite; }
+.animate-shield-pulse {
+  animation: shield-pulse 8s ease-in-out infinite;
+}
+
+.animate-line-flow {
+  animation: line-flow 10s linear infinite;
+}
+
+.animate-crane-swing {
+  animation: crane-swing 12s ease-in-out infinite;
+  transform-origin: 40px 40px;
+}
+
+.animate-block-lift {
+  animation: block-lift 8s ease-in-out infinite;
+}
 
 @media (prefers-reduced-motion: reduce) {
+
   .animate-shield-pulse,
   .animate-line-flow,
   .animate-crane-swing,
