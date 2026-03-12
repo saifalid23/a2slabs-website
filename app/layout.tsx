@@ -15,6 +15,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "A2S Labs | Smart Automation & Custom Systems",
   description: "We help growing businesses automate operations, streamline workflows, and build custom internal tools.",
+  verification: {
+    google: "f0U8Z_zXe1k-nM0W6JbV3jEWb0hg2ulR6Yw64DqEGPo",
+  },
 };
 
 export default function RootLayout({
