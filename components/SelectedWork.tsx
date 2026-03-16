@@ -27,18 +27,42 @@ const ConstructionIllustration = () => (
     </svg>
 );
 
+const EducationIllustration = () => (
+    <svg viewBox="0 0 80 80" className="w-24 h-24 text-zinc-500 opacity-70" fill="none" xmlns="http://www.w3.org/2000/svg">
+        {/* Graduation cap */}
+        <path d="M40 18L10 32L40 46L70 32L40 18Z" stroke="currentColor" strokeWidth="1" />
+        {/* Left strand */}
+        <path d="M22 38V54C22 54 29 62 40 62C51 62 58 54 58 54V38" stroke="currentColor" strokeWidth="1" />
+        {/* Tassel */}
+        <path d="M70 32V50" stroke="currentColor" strokeWidth="1" />
+        <circle cx="70" cy="53" r="3" stroke="currentColor" strokeWidth="0.8" />
+        {/* Data lines inside cap */}
+        <path d="M30 36H50" stroke="currentColor" strokeWidth="0.5" strokeDasharray="2 3" className="animate-line-flow" style={{ animationDelay: '1s' }} />
+        <path d="M28 40H52" stroke="currentColor" strokeWidth="0.5" strokeDasharray="2 3" className="animate-line-flow" style={{ animationDelay: '3s' }} />
+    </svg>
+);
+
 const works = [
     {
         category: "INSURANCE",
         title: "Automated Lead Capture & Onboarding",
         description: "Automated lead capture and onboarding workflow for a US-based insurance firm. Resulted in a 60% reduction in manual workload and saved ~20 hours per week.",
-        Illustration: InsuranceIllustration
+        result: "60% workload reduction",
+        Illustration: InsuranceIllustration,
     },
     {
         category: "CONSTRUCTION",
         title: "Custom Operations Management Platform",
         description: "Built a custom platform for a regional contractor to track projects, staff expenses, and financial overview with automated quotation generation and WhatsApp integration.",
-        Illustration: ConstructionIllustration
+        result: "Full ops digitization",
+        Illustration: ConstructionIllustration,
+    },
+    {
+        category: "EDUCATION",
+        title: "End-to-End Digital Systems for Meezan Educational Institute",
+        description: "Designed and implemented a full digital infrastructure for Meezan Educational Institute — covering student enrollment flows, automated communications, and an internal management dashboard that transformed day-to-day operations.",
+        result: "Complete digital transformation",
+        Illustration: EducationIllustration,
     },
 ];
 
@@ -58,19 +82,25 @@ export default function SelectedWork() {
                     </div>
                 </div>
 
-                <div className="grid gap-12 md:grid-cols-2">
+                <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-3">
                     {works.map((work, index) => (
                         <div key={index} className="group flex flex-col">
                             <div className="mb-8 aspect-video w-full rounded-2xl border border-zinc-900 bg-zinc-950 transition-colors group-hover:bg-zinc-900/40 flex items-center justify-center p-12">
                                 <work.Illustration />
                             </div>
-                            <span className="mb-4 text-xs font-semibold tracking-widest text-zinc-600">{work.category}</span>
-                            <h4 className="mb-4 text-2xl font-bold text-white transition-colors group-hover:text-zinc-300">
+                            <span className="mb-2 text-xs font-semibold tracking-widest text-zinc-600">{work.category}</span>
+                            <h4 className="mb-4 text-xl font-bold text-white transition-colors group-hover:text-zinc-300">
                                 {work.title}
                             </h4>
-                            <p className="text-zinc-500 leading-relaxed">
+                            <p className="mb-4 text-zinc-500 leading-relaxed flex-1">
                                 {work.description}
                             </p>
+                            <div className="inline-flex items-center gap-2 text-xs font-semibold text-zinc-400">
+                                <svg className="h-3.5 w-3.5 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                                </svg>
+                                {work.result}
+                            </div>
                         </div>
                     ))}
                 </div>

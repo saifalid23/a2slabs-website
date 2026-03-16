@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
+import SocialProof from "@/components/SocialProof";
 import Services from "@/components/Services";
 import Approach from "@/components/Approach";
 import SelectedWork from "@/components/SelectedWork";
@@ -12,6 +13,7 @@ export default function Home() {
       <Header />
       <main>
         <Hero />
+        <SocialProof />
         <Services />
         <Approach />
         <SelectedWork />
