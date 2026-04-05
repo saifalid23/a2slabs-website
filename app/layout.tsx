@@ -80,17 +80,21 @@ export const metadata: Metadata = {
   },
 };
 
+import LenisProvider from "@/components/LenisProvider";
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en">
       <body
         className={`${geistSans.variable} ${jetbrainsMono.variable} antialiased bg-[#0F172A] text-white`}
       >
-        {children}
+        <LenisProvider>
+          {children}
+        </LenisProvider>
       </body>
     </html>
   );

@@ -75,8 +75,20 @@ h3 { font-size: clamp(1.5rem, 2vw + 0.5rem, 2.5rem); }
 .hero-mesh {
   background-color: #0F172A;
   background-image: 
-    radial-gradient(at 0% 0%, #1E1B4B 0px, transparent 50%),
-    radial-gradient(at 100% 100%, #312E81 0px, transparent 50%);
+    radial-gradient(at 0% 0%, #1E293B 0px, transparent 50%),
+    radial-gradient(at 100% 100%, #1E293B 0px, transparent 50%);
+}
+
+/* ─── Reveal Animations ─── */
+.reveal-hidden {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* ─── Glassmorphism Nav ─── */

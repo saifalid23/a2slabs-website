@@ -41,23 +41,19 @@ export default function SelectedWork() {
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {works.map((work, index) => (
             <div key={index} className="group flex flex-col rounded-xl border border-[#1E293B] bg-[#0F172A] p-6 transition-colors hover:border-[#94A3B8]/30">
-              {/* Abstract data-flow diagram visual */}
-              <div className="mb-6 aspect-video w-full overflow-hidden rounded-xl bg-[#1E293B]/20 flex items-center justify-center relative">
-                {/* SVG data-flow schematic */}
-                <svg className="w-full h-full absolute inset-0 opacity-20" viewBox="0 0 400 225" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <line x1="0" y1="56" x2="400" y2="56" stroke="#94A3B8" strokeWidth="0.5" />
-                  <line x1="0" y1="112" x2="400" y2="112" stroke="#94A3B8" strokeWidth="0.5" />
-                  <line x1="0" y1="168" x2="400" y2="168" stroke="#94A3B8" strokeWidth="0.5" />
-                  <line x1="100" y1="0" x2="100" y2="225" stroke="#94A3B8" strokeWidth="0.5" />
-                  <line x1="200" y1="0" x2="200" y2="225" stroke="#94A3B8" strokeWidth="0.5" />
-                  <line x1="300" y1="0" x2="300" y2="225" stroke="#94A3B8" strokeWidth="0.5" />
-                  {/* Flow connections */}
-                  <circle cx="100" cy="56" r="4" fill="#FFFFFF" />
-                  <circle cx="200" cy="112" r="6" fill="#FFFFFF" fillOpacity="0.8" />
-                  <circle cx="300" cy="168" r="3" fill="#FFFFFF" />
-                  <line x1="100" y1="56" x2="200" y2="112" stroke="#FFFFFF" strokeWidth="1" strokeOpacity="0.5" />
-                  <line x1="200" y1="112" x2="300" y2="168" stroke="#FFFFFF" strokeWidth="1" strokeOpacity="0.5" />
-                </svg>
+              {/* Brutalist Terminal Visual */}
+              <div className="mb-6 aspect-video w-full overflow-hidden rounded border border-[#1E293B] bg-[#111] p-4 flex flex-col justify-start">
+                <div className="flex items-center gap-2 mb-3">
+                  <div className="w-2.5 h-2.5 rounded-full bg-[#1E293B]" />
+                  <div className="w-2.5 h-2.5 rounded-full bg-[#1E293B]" />
+                  <div className="w-2.5 h-2.5 rounded-full bg-[#1E293B]" />
+                </div>
+                <pre className="text-xs text-[#94A3B8] leading-relaxed tracking-wider overflow-hidden" style={{ fontFamily: "var(--font-mono)" }}>
+                  <code className="block text-[#00F0FF] mb-2">{">"} run system_audit.sh --target={work.category.toLowerCase()}</code>
+                  <code className="block">Deploying module: {work.title.substring(0, 16)}...</code>
+                  <code className="block text-white opacity-90 mt-1">[✓] Architecture compiled</code>
+                  <code className="block opacity-50 mt-1">Output: {work.result}</code>
+                </pre>
               </div>
 
               <span className="label-mono mb-2">{work.category}</span>

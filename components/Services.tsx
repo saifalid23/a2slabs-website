@@ -1,7 +1,6 @@
 "use client";
 
 import { useRef, useState, useEffect } from "react";
-import { motion } from "framer-motion";
 
 const services = [
   {
@@ -97,16 +96,10 @@ export default function Services() {
         {/* Bento Grid — 32px gutters */}
         <div ref={sectionRef} className="grid grid-cols-1 gap-8 md:grid-cols-3">
           {services.map((service, index) => (
-            <motion.div
+            <div
               key={index}
-              initial={{ opacity: 0, y: 24 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{
-                duration: 0.5,
-                delay: index * 0.1,
-                ease: "easeOut",
-              }}
-              className={`rounded-xl border border-[#1E293B] bg-[#0F172A] p-8 shadow-none ${service.span}`}
+              style={{ transitionDelay: `${index * 100}ms` }}
+              className={`reveal-hidden ${isInView ? "reveal-visible" : ""} rounded-xl border border-[#1E293B] bg-white/[0.03] backdrop-blur-[12px] p-8 shadow-none ${service.span}`}
             >
               {/* Slate Icon container */}
               <div className="mb-6 inline-flex h-12 w-12 items-center justify-center rounded-lg border border-[#1E293B] bg-[#1E293B]/30 text-white">
@@ -123,7 +116,7 @@ export default function Services() {
                    style={{ fontFamily: "var(--font-mono)" }}>
                 {service.detail}
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>
