@@ -9,12 +9,7 @@ export default function ContactForm() {
   const [formData, setFormData] = useState({
     fullName: "",
     workEmail: "",
-    companyName: "",
-    staffSize: "",
-    annualRevenue: "",
     painPoint: "",
-    serviceNeeded: "",
-    timeline: "",
   });
 
   const handleChange = (
@@ -35,12 +30,7 @@ export default function ContactForm() {
         setFormData({
           fullName: "",
           workEmail: "",
-          companyName: "",
-          staffSize: "",
-          annualRevenue: "",
           painPoint: "",
-          serviceNeeded: "",
-          timeline: "",
         });
       } else {
         setStatus("error");
@@ -113,29 +103,7 @@ export default function ContactForm() {
                   <input required type="text" name="fullName" placeholder="Full Name *" value={formData.fullName} onChange={handleChange} className={inputClasses} aria-label="Full Name" />
                   <input required type="email" name="workEmail" placeholder="Work Email *" value={formData.workEmail} onChange={handleChange} className={inputClasses} aria-label="Work Email" />
                 </div>
-                <div className="grid gap-5 md:grid-cols-2">
-                  <input type="text" name="companyName" placeholder="Company Name" value={formData.companyName} onChange={handleChange} className={inputClasses} aria-label="Company Name" />
-                  <select name="staffSize" value={formData.staffSize} onChange={handleChange} className={inputClasses} aria-label="Staff Size">
-                    <option value="">Staff Size</option>
-                    <option value="1-10">1-10</option>
-                    <option value="11-50">11-50</option>
-                    <option value="51-200">51-200</option>
-                    <option value="200+">200+</option>
-                  </select>
-                </div>
-                <select name="annualRevenue" value={formData.annualRevenue} onChange={handleChange} className={inputClasses} aria-label="Annual Revenue">
-                  <option value="">Annual Revenue</option>
-                  <option value="<$1M">&lt;$1M</option>
-                  <option value="$1M-$10M">$1M-$10M</option>
-                  <option value="$10M+">$10M+</option>
-                </select>
-                <textarea required name="painPoint" rows={4} placeholder="Describe your operational challenge *" value={formData.painPoint} onChange={handleChange} className={inputClasses} aria-label="Operational Challenge" />
-                <select name="timeline" value={formData.timeline} onChange={handleChange} className={inputClasses} aria-label="Project Timeline">
-                  <option value="">Project Timeline</option>
-                  <option value="ASAP">ASAP</option>
-                  <option value="1-3 months">1-3 months</option>
-                  <option value="Exploring options">Exploring options</option>
-                </select>
+                <textarea required name="painPoint" rows={6} placeholder="Describe your project or challenge *" value={formData.painPoint} onChange={handleChange} className={inputClasses} aria-label="Project Description" />
                 <button
                   disabled={status === "loading"}
                   type="submit"

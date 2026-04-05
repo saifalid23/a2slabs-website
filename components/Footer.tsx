@@ -47,13 +47,8 @@ export default function Footer() {
             <h4 className="label-mono mb-6">Connect</h4>
             <ul className="space-y-4">
               <li>
-                <a href="https://linkedin.com" className="text-base text-[#94A3B8] transition-colors duration-300 hover:text-white" target="_blank" rel="noopener noreferrer">
-                  LinkedIn
-                </a>
-              </li>
-              <li>
-                <a href="https://twitter.com" className="text-base text-[#94A3B8] transition-colors duration-300 hover:text-white" target="_blank" rel="noopener noreferrer">
-                  Twitter / X
+                <a href="https://www.instagram.com/a2s_labs/" className="text-base text-[#94A3B8] transition-colors duration-300 hover:text-white" target="_blank" rel="noopener noreferrer">
+                  Instagram
                 </a>
               </li>
             </ul>

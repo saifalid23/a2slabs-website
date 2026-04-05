@@ -61,7 +61,7 @@ const services = [
       </svg>
     ),
     span: "md:col-span-2",
-    detail: "Full-Stack · AI Integration · DevOps",
+    detail: "Full-Stack · AI Integration · Security",
   },
 ];
 
@@ -113,7 +113,7 @@ export default function Services() {
               </p>
               {/* Tech stack detail */}
               <div className="inline-flex items-center gap-2 rounded-md bg-[#1E293B]/50 px-3 py-1.5 text-base font-bold tracking-widest text-[#94A3B8]"
-                   style={{ fontFamily: "var(--font-mono)" }}>
+                style={{ fontFamily: "var(--font-mono)" }}>
                 {service.detail}
               </div>
             </div>

@@ -5,7 +5,6 @@ const works = [
     description:
       "Intelligent lead capture and onboarding workflow for a US-based insurance firm. AI-powered routing and follow-ups resulted in a 60% reduction in manual workload.",
     result: "60% workload reduction",
-    tech: "Python · Next.js · Gemini API",
   },
   {
     category: "CONSTRUCTION",
@@ -13,7 +12,6 @@ const works = [
     description:
       "Built a custom platform for a regional contractor to track projects, staff expenses, and financial overview with automated quotation generation and WhatsApp integration.",
     result: "Full ops digitization",
-    tech: "Supabase · React · WhatsApp API",
   },
   {
     category: "EDUCATION",
@@ -21,7 +19,6 @@ const works = [
     description:
       "Designed and implemented a complete intelligent infrastructure — covering student enrollment flows, automated communications, and an internal management dashboard.",
     result: "Complete digital transformation",
-    tech: "Next.js · TypeScript · Supabase",
   },
 ];
 
@@ -60,14 +57,9 @@ export default function SelectedWork() {
               <h3 className="mb-4 font-sans text-lg font-bold tracking-tight text-white transition-colors group-hover:text-[#94A3B8]">
                 {work.title}
               </h3>
-              <p className="mb-4 text-base font-normal text-[#94A3B8] leading-relaxed flex-1">
+              <p className="mb-8 text-base font-normal text-[#94A3B8] leading-relaxed flex-1">
                 {work.description}
               </p>
-              {/* Tech stack — mono */}
-              <div className="mb-4 text-base font-bold tracking-widest text-[#94A3B8]"
-                   style={{ fontFamily: "var(--font-mono)" }}>
-                {work.tech}
-              </div>
               <div className="inline-flex items-center gap-2 font-sans text-base font-bold text-white">
                 <svg className="h-3.5 w-3.5 text-white" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z" />
