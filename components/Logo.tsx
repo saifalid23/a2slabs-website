@@ -1,51 +1,55 @@
-import React from "react";
+export default function Logo({ height = 40 }: { height?: number }) {
+  return (
+    <svg 
+      height={height} 
+      viewBox="0 0 200 48" 
+      fill="none" 
+      xmlns="http://www.w3.org/2000/svg"
+      className="text-white"
+    >
+      {/* Outer subtle Hexagon Frame */}
+      <path 
+        d="M24 4L41.3205 14V34L24 44L6.67949 34V14L24 4Z" 
+        stroke="currentColor" 
+        strokeWidth="1" 
+        strokeOpacity="0.2"
+      />
+      {/* Inner Hexagon Core */}
+      <path 
+        d="M24 12L34.3923 18V30L24 36L13.6077 30V18L24 12Z" 
+        stroke="currentColor" 
+        strokeWidth="1.5"
+      />
+      
+      {/* Central Node Dot */}
+      <circle cx="24" cy="24" r="2.5" fill="currentColor" />
 
-interface LogoProps {
-    height?: number;
-    className?: string;
-    showWordmark?: boolean;
+      {/* Wordmark A2S */}
+      <text 
+        x="52" 
+        y="30" 
+        fontFamily="var(--font-geist-sans), sans-serif" 
+        fontSize="20" 
+        fontWeight="bold" 
+        fill="currentColor"
+        letterSpacing="-0.02em"
+      >
+        A2S
+      </text>
+      
+      {/* Wordmark LABS */}
+      <text 
+        x="98" 
+        y="30" 
+        fontFamily="var(--font-geist-mono), monospace" 
+        fontSize="16" 
+        fontWeight="400" 
+        fill="currentColor"
+        fillOpacity="0.5"
+        letterSpacing="0.05em"
+      >
+        LABS
+      </text>
+    </svg>
+  );
 }
-
-const Logo: React.FC<LogoProps> = ({ height = 32, className = "", showWordmark = true }) => {
-    // Calculate width based on requested height to maintain aspect ratio
-    // Symbol aspect ratio is approx 1:1, Wordmark + Symbol is approx 4:1
-    const width = showWordmark ? height * 4 : height;
-
-    return (
-        <div className={`flex items-center gap-3 ${className}`} style={{ height }}>
-            <svg
-                viewBox="0 0 100 100"
-                height={height}
-                width={height}
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                className="text-white"
-            >
-                {/* Minimal Monogram / Monark */}
-                <path
-                    d="M50 15L80 32.5V67.5L50 85L20 67.5V32.5L50 15Z"
-                    stroke="currentColor"
-                    strokeWidth="6"
-                    strokeLinejoin="round"
-                />
-                <path
-                    d="M50 35L63 42.5V57.5L50 65L37 57.5V42.5L50 35Z"
-                    fill="currentColor"
-                    fillOpacity="0.2"
-                    stroke="currentColor"
-                    strokeWidth="3"
-                />
-                <circle cx="50" cy="50" r="4" fill="currentColor" />
-            </svg>
-
-            {showWordmark && (
-                <span className="flex items-baseline font-sans uppercase tracking-[0.1em] text-white" style={{ fontSize: height * 0.65 }}>
-                    <span className="font-extrabold">A2S</span>
-                    <span className="font-light ml-1 text-zinc-400">LABS</span>
-                </span>
-            )}
-        </div>
-    );
-};
-
-export default Logo;

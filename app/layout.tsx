@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -7,8 +7,8 @@ const geistSans = Geist({
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const jetbrainsMono = JetBrains_Mono({
+  variable: "--font-mono",
   subsets: ["latin"],
 });
 
@@ -17,17 +17,17 @@ const siteUrl = "https://www.a2slabs.com";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "A2S Labs | Business Automation & Custom Systems",
+    default: "A2S Labs | Intelligent Infrastructure & AI Automation",
     template: "%s | A2S Labs",
   },
   description:
-    "A2S Labs helps growing businesses automate operations, streamline workflows, and build custom internal tools — saving time and improving visibility.",
+    "A2S Labs builds the intelligent infrastructure that powers tomorrow's leaders — from AI automation and custom platforms to secure, scalable web systems.",
   keywords: [
-    "business automation",
-    "workflow automation",
+    "AI automation",
+    "intelligent infrastructure",
     "custom web applications",
-    "internal tools",
-    "WhatsApp automation",
+    "workflow automation",
+    "AI-powered tools",
     "systems advisory",
     "Pakistan",
     "A2S Labs",
@@ -42,15 +42,15 @@ export const metadata: Metadata = {
     type: "website",
     url: siteUrl,
     siteName: "A2S Labs",
-    title: "A2S Labs | Business Automation & Custom Systems",
+    title: "A2S Labs | Intelligent Infrastructure & AI Automation",
     description:
-      "Smart automation and custom systems for growing businesses. Streamline workflows, eliminate bottlenecks, and build tools that scale with you.",
+      "Building the intelligent infrastructure for tomorrow's leaders. AI automation, custom platforms, and secure web systems that scale.",
     images: [
       {
         url: `${siteUrl}/og-image.png`,
         width: 1200,
         height: 630,
-        alt: "A2S Labs – Smart Automation & Custom Systems",
+        alt: "A2S Labs – Intelligent Infrastructure & AI Automation",
       },
     ],
     locale: "en_US",
@@ -59,9 +59,9 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@a2slabs",
     creator: "@a2slabs",
-    title: "A2S Labs | Business Automation & Custom Systems",
+    title: "A2S Labs | Intelligent Infrastructure & AI Automation",
     description:
-      "Smart automation and custom systems for growing businesses. Streamline workflows, eliminate bottlenecks, and build tools that scale with you.",
+      "Building the intelligent infrastructure for tomorrow's leaders. AI automation, custom platforms, and secure web systems that scale.",
     images: [`${siteUrl}/og-image.png`],
   },
   robots: {
@@ -86,9 +86,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark scroll-smooth">
+    <html lang="en" className="scroll-smooth">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-black text-white`}
+        className={`${geistSans.variable} ${jetbrainsMono.variable} antialiased bg-[#0F172A] text-white`}
       >
         {children}
       </body>

@@ -1,11 +1,12 @@
 "use client";
 
-import Link from "next/link";
 import { useState, useEffect } from "react";
+import Link from "next/link";
 import Logo from "./Logo";
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,59 +18,94 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed top-0 z-50 w-full transition-all duration-300 ${isScrolled
-        ? "border-b border-zinc-800 bg-black/80 backdrop-blur-md py-4"
-        : "bg-transparent py-6"
-        }`}
+      className={`fixed top-0 left-0 z-50 w-full transition-all duration-300 ${
+        isScrolled ? "glass-nav py-3" : "bg-transparent py-5"
+      }`}
     >
       <div className="container mx-auto flex items-center justify-between px-6 md:px-12">
-        <Link href="/" className="flex items-center">
-          <Logo height={24} />
+        <Link href="/" className="z-50" aria-label="A2S Labs Home">
+          <Logo height={isScrolled ? 32 : 40} />
         </Link>
 
-        <nav className="hidden items-center space-x-8 md:flex">
+        {/* Desktop Nav */}
+        <nav className="hidden items-center gap-8 md:flex">
           <Link
             href="#services"
-            className="text-sm font-medium text-zinc-400 transition-colors hover:text-white"
+            className="font-sans text-sm font-medium text-[#94A3B8] transition-colors duration-300 hover:text-white"
           >
             Services
           </Link>
           <Link
             href="#approach"
-            className="text-sm font-medium text-zinc-400 transition-colors hover:text-white"
+            className="font-sans text-sm font-medium text-[#94A3B8] transition-colors duration-300 hover:text-white"
           >
             Approach
           </Link>
           <Link
             href="#work"
-            className="text-sm font-medium text-zinc-400 transition-colors hover:text-white"
+            className="font-sans text-sm font-medium text-[#94A3B8] transition-colors duration-300 hover:text-white"
           >
             Work
           </Link>
           <Link
             href="#contact"
-            className="group relative inline-flex items-center justify-center overflow-hidden rounded-full border border-zinc-700 bg-white px-6 py-2 text-sm font-bold text-black transition-all duration-300 hover:bg-zinc-200"
+            className="rounded-lg bg-[#00F0FF] px-6 py-2.5 font-sans text-sm font-bold text-[#0F172A] transition-colors hover:bg-white"
           >
-            Book a Consultation
+            Book a Strategy Audit
           </Link>
         </nav>
 
-        <button className="flex h-8 w-8 items-center justify-center rounded-md border border-zinc-800 md:hidden">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth={1.5}
-            stroke="currentColor"
-            className="h-5 w-5 text-white"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-            />
+        {/* Mobile Menu Toggle */}
+        <button
+          className="z-50 p-2 text-white md:hidden"
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
+          aria-expanded={isMobileMenuOpen}
+        >
+          <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            {isMobileMenuOpen ? (
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            ) : (
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+            )}
           </svg>
         </button>
+
+        {/* Mobile Nav Overlay */}
+        <div
+          className={`glass-nav fixed inset-0 z-40 flex flex-col items-center justify-center gap-8 transition-opacity duration-300 md:hidden ${
+            isMobileMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+          }`}
+        >
+          <Link
+            href="#services"
+            onClick={() => setIsMobileMenuOpen(false)}
+            className="font-sans text-xl font-medium text-white"
+          >
+            Services
+          </Link>
+          <Link
+            href="#approach"
+            onClick={() => setIsMobileMenuOpen(false)}
+            className="font-sans text-xl font-medium text-white"
+          >
+            Approach
+          </Link>
+          <Link
+            href="#work"
+            onClick={() => setIsMobileMenuOpen(false)}
+            className="font-sans text-xl font-medium text-white"
+          >
+            Work
+          </Link>
+          <Link
+            href="#contact"
+            onClick={() => setIsMobileMenuOpen(false)}
+            className="mt-4 rounded-lg bg-[#00F0FF] px-8 py-3 font-sans text-lg font-bold text-[#0F172A]"
+          >
+            Book a Strategy Audit
+          </Link>
+        </div>
       </div>
     </header>
   );
