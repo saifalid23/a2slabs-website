@@ -115,12 +115,12 @@ export default function Services() {
               <h3 className="mb-3 text-lg font-bold tracking-tight text-white">
                 {service.title}
               </h3>
-              <p className="mb-4 text-sm text-[#94A3B8] leading-relaxed">
+              <p className="mb-4 text-base font-normal text-[#94A3B8] leading-relaxed">
                 {service.description}
               </p>
               {/* Tech stack detail */}
-              <div className="inline-flex items-center gap-2 rounded-md bg-[#1E293B]/50 px-3 py-1.5"
-                   style={{ fontFamily: "var(--font-geist-mono)", fontSize: "0.65rem", letterSpacing: "0.06em", color: "#94A3B8" }}>
+              <div className="inline-flex items-center gap-2 rounded-md bg-[#1E293B]/50 px-3 py-1.5 text-base font-bold tracking-widest text-[#94A3B8]"
+                   style={{ fontFamily: "var(--font-mono)" }}>
                 {service.detail}
               </div>
             </motion.div>

@@ -61,18 +61,18 @@ export default function SelectedWork() {
               </div>
 
               <span className="label-mono mb-2">{work.category}</span>
-              <h3 className="mb-4 text-lg font-bold tracking-tight text-white transition-colors group-hover:text-[#94A3B8]">
+              <h3 className="mb-4 font-sans text-lg font-bold tracking-tight text-white transition-colors group-hover:text-[#94A3B8]">
                 {work.title}
               </h3>
-              <p className="mb-4 text-sm text-[#94A3B8] leading-relaxed flex-1">
+              <p className="mb-4 text-base font-normal text-[#94A3B8] leading-relaxed flex-1">
                 {work.description}
               </p>
               {/* Tech stack — mono */}
-              <div className="mb-3 text-[#94A3B8]"
-                   style={{ fontFamily: "var(--font-geist-mono)", fontSize: "0.65rem", letterSpacing: "0.06em" }}>
+              <div className="mb-4 text-base font-bold tracking-widest text-[#94A3B8]"
+                   style={{ fontFamily: "var(--font-mono)" }}>
                 {work.tech}
               </div>
-              <div className="inline-flex items-center gap-2 text-xs font-semibold text-white">
+              <div className="inline-flex items-center gap-2 font-sans text-base font-bold text-white">
                 <svg className="h-3.5 w-3.5 text-white" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z" />
                 </svg>

@@ -14,7 +14,7 @@ export default function Hero() {
               <span className="animate-blink absolute inline-flex h-full w-full rounded-full bg-[#00F0FF] opacity-75" />
               <span className="relative inline-flex h-2 w-2 rounded-full bg-[#00F0FF]" />
             </span>
-            <span className="text-xs text-[#94A3B8]" style={{ fontFamily: "var(--font-geist-mono)", letterSpacing: "0.05em" }}>
+            <span className="text-sm font-bold tracking-widest text-[#94A3B8] uppercase" style={{ fontFamily: "var(--font-mono)" }}>
               Systems Ready
             </span>
           </div>
@@ -31,13 +31,13 @@ export default function Hero() {
         <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
           <a
             href="#contact"
-            className="rounded-lg bg-[#00F0FF] px-8 py-4 text-base font-semibold text-[#0F172A] transition-all hover:bg-white"
+            className="rounded-lg bg-[#00F0FF] px-8 py-4 font-sans text-base font-bold tracking-wide text-[#0F172A] transition-all hover:bg-white"
           >
             Book a Strategy Audit
           </a>
           <a
             href="#work"
-            className="rounded-lg border border-[#1E293B] bg-[#0F172A] px-8 py-4 text-base font-medium text-white transition-all hover:bg-[#1E293B]"
+            className="rounded-lg border border-[#1E293B] bg-[#0F172A] px-8 py-4 font-sans text-base font-bold text-white transition-all hover:bg-[#1E293B]"
           >
             View Our Work
           </a>

@@ -54,11 +54,11 @@ export default function Approach() {
               <h3 className="mb-4 text-lg font-bold tracking-tight text-white">
                 {step.title}
               </h3>
-              <p className="mb-4 text-sm text-[#94A3B8] leading-relaxed">
+              <p className="mb-4 text-base font-normal text-[#94A3B8] leading-relaxed">
                 {step.description}
               </p>
-              <div className="text-[#94A3B8]"
-                   style={{ fontFamily: "var(--font-geist-mono)", fontSize: "0.6rem", letterSpacing: "0.08em" }}>
+              <div className="text-base font-bold tracking-widest text-[#94A3B8]"
+                   style={{ fontFamily: "var(--font-mono)" }}>
                 {step.detail}
               </div>
             </div>

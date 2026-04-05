@@ -68,7 +68,7 @@ export default function TechMarquee() {
             <span className="transition-all duration-300">
               {tech.svg}
             </span>
-            <span className="whitespace-nowrap" style={{ fontFamily: "var(--font-geist-mono)", fontSize: "0.7rem", letterSpacing: "0.1em", textTransform: "uppercase" }}>
+            <span className="text-base font-bold tracking-widest text-uppercase" style={{ fontFamily: "var(--font-mono)" }}>
               {tech.name}
             </span>
           </div>

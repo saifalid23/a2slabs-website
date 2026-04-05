@@ -31,19 +31,19 @@ export default function Header() {
         <nav className="hidden items-center gap-8 md:flex">
           <Link
             href="#services"
-            className="font-sans text-sm font-medium text-[#94A3B8] transition-colors duration-300 hover:text-white"
+            className="font-sans text-sm font-bold text-[#94A3B8] transition-colors duration-300 hover:text-white"
           >
             Services
           </Link>
           <Link
             href="#approach"
-            className="font-sans text-sm font-medium text-[#94A3B8] transition-colors duration-300 hover:text-white"
+            className="font-sans text-sm font-bold text-[#94A3B8] transition-colors duration-300 hover:text-white"
           >
             Approach
           </Link>
           <Link
             href="#work"
-            className="font-sans text-sm font-medium text-[#94A3B8] transition-colors duration-300 hover:text-white"
+            className="font-sans text-sm font-bold text-[#94A3B8] transition-colors duration-300 hover:text-white"
           >
             Work
           </Link>
@@ -80,21 +80,21 @@ export default function Header() {
           <Link
             href="#services"
             onClick={() => setIsMobileMenuOpen(false)}
-            className="font-sans text-xl font-medium text-white"
+            className="font-sans text-xl font-bold text-white"
           >
             Services
           </Link>
           <Link
             href="#approach"
             onClick={() => setIsMobileMenuOpen(false)}
-            className="font-sans text-xl font-medium text-white"
+            className="font-sans text-xl font-bold text-white"
           >
             Approach
           </Link>
           <Link
             href="#work"
             onClick={() => setIsMobileMenuOpen(false)}
-            className="font-sans text-xl font-medium text-white"
+            className="font-sans text-xl font-bold text-white"
           >
             Work
           </Link>

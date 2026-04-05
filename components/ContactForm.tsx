@@ -118,7 +118,7 @@ export default function ContactForm() {
                 </p>
                 <button
                   onClick={() => setStatus("idle")}
-                  className="mt-8 text-sm font-semibold text-white underline underline-offset-4 hover:text-white/80 transition-colors"
+                  className="mt-8 font-sans text-base font-bold text-white underline underline-offset-4 hover:text-white/80 transition-colors"
                 >
                   Send another message
                 </button>
@@ -155,7 +155,7 @@ export default function ContactForm() {
                 <button
                   disabled={status === "loading"}
                   type="submit"
-                  className="w-full rounded-lg bg-[#00F0FF] px-8 py-4 text-sm font-semibold text-[#0F172A] transition-all duration-300 hover:bg-white disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-full rounded-lg bg-[#00F0FF] px-8 py-4 font-sans text-base font-bold text-[#0F172A] transition-all duration-300 hover:bg-white disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {status === "loading" ? "Processing..." : "Submit Inquiry"}
                 </button>
