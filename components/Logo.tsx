@@ -28,7 +28,7 @@ export default function Logo({ height = 40 }: { height?: number }) {
       <text 
         x="52" 
         y="30" 
-        fontFamily="var(--font-geist-sans), sans-serif" 
+        fontFamily="var(--font-inter), sans-serif" 
         fontSize="20" 
         fontWeight="bold" 
         fill="currentColor"
@@ -41,7 +41,7 @@ export default function Logo({ height = 40 }: { height?: number }) {
       <text 
         x="98" 
         y="30" 
-        fontFamily="var(--font-geist-mono), monospace" 
+        fontFamily="var(--font-mono), monospace" 
         fontSize="16" 
         fontWeight="400" 
         fill="currentColor"

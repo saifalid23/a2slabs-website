@@ -48,7 +48,7 @@ export default function Approach() {
             >
               {/* Step number */}
               <div className="mb-8 text-4xl font-bold tracking-tight text-[#1E293B] transition-colors duration-500 group-hover:text-white"
-                   style={{ fontFamily: "var(--font-geist-mono)" }}>
+                   style={{ fontFamily: "var(--font-mono)" }}>
                 {step.number}
               </div>
               <h3 className="mb-4 text-lg font-bold tracking-tight text-white">
