@@ -1,27 +1,9 @@
 "use client";
 
-import { useEffect, ReactNode } from "react";
-import Lenis from "lenis";
+import { ReactNode } from "react";
 
+// Lenis disabled — native CSS scroll-snap handles cinematic snap transitions.
+// Re-enable here if switching away from snap layout.
 export default function LenisProvider({ children }: { children: ReactNode }) {
-  useEffect(() => {
-    const lenis = new Lenis({
-      duration: 1.2,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), 
-      smoothWheel: true,
-    });
-
-    function raf(time: number) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
-
-    requestAnimationFrame(raf);
-
-    return () => {
-      lenis.destroy();
-    };
-  }, []);
-
   return <>{children}</>;
 }
