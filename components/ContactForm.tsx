@@ -1,11 +1,7 @@
 "use client";
 
 import { useState } from "react";
-<<<<<<< Updated upstream
-import { submitContact } from "@/app/actions";
-=======
 import Link from "next/link";
->>>>>>> Stashed changes
 
 export default function ContactForm() {
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
@@ -26,13 +22,6 @@ export default function ContactForm() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setStatus("loading");
-<<<<<<< Updated upstream
-    const sentData = new FormData(e.currentTarget);
-    try {
-      const result = await submitContact(null, sentData);
-      if (result.success) {
-=======
-
     const payload = {
       fullName: formData.fullName,
       workEmail: formData.workEmail,
@@ -49,7 +38,6 @@ export default function ContactForm() {
         body: new URLSearchParams(payload as Record<string, string>),
       });
       if (response.ok) {
->>>>>>> Stashed changes
         setStatus("success");
         setFormData({ fullName: "", workEmail: "", painPoint: "" });
       } else {

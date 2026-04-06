@@ -51,21 +51,6 @@ export default function Approach() {
               key={index}
               className="group rounded-xl border border-[#1E293B] bg-[#0F172A] p-5 md:p-6 transition-colors hover:border-[#94A3B8]/30"
             >
-<<<<<<< Updated upstream
-              {/* Step number */}
-              <div className="mb-8 text-4xl font-bold tracking-tight text-[#1E293B] transition-colors duration-500 group-hover:text-white"
-                   style={{ fontFamily: "var(--font-geist-mono)" }}>
-                {step.number}
-              </div>
-              <h3 className="mb-4 text-lg font-bold tracking-tight text-white">
-                {step.title}
-              </h3>
-              <p className="mb-4 text-base font-normal text-[#94A3B8] leading-relaxed">
-                {step.description}
-              </p>
-              <div className="text-base font-bold tracking-widest text-[#94A3B8]"
-                   style={{ fontFamily: "var(--font-mono)" }}>
-=======
               <div
                 className="mb-4 text-3xl font-black tracking-tight text-[#1E293B] transition-colors duration-500 group-hover:text-white"
                 style={{ fontFamily: "var(--font-mono)" }}
@@ -82,7 +67,6 @@ export default function Approach() {
                 className="text-xs font-medium tracking-widest text-[#94A3B8] text-italic uppercase"
                 style={{ fontFamily: "var(--font-mono)" }}
               >
->>>>>>> Stashed changes
                 {step.detail}
               </div>
             </div>
