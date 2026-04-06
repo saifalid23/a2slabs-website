@@ -20,12 +20,12 @@ export default function Hero() {
           </div>
         </div>
 
-        <h1 className="heading-deep mx-auto mb-6 max-w-5xl tracking-tight text-white drop-shadow-sm">
-          Intelligent Infrastructure for Modern Teams
+        <h1 className="font-black mx-auto mb-6 max-w-5xl text-5xl tracking-tight text-white drop-shadow-sm md:text-7xl lg:text-8xl">
+          Intelligent Infrastructure <span className="text-italic font-black text-[#00F0FF]">for</span> Modern Teams
         </h1>
         
-        <p className="mx-auto mb-10 max-w-2xl text-lg text-[#94A3B8] leading-relaxed md:text-xl md:leading-relaxed">
-          We architect custom AI automations and robust internal tools that connect your scattered data, streamline manual work, and scale with your vision.
+        <p className="mx-auto mb-10 max-w-2xl text-lg font-light text-[#94A3B8] leading-relaxed md:text-xl md:leading-relaxed">
+          We architect <span className="text-italic font-medium text-white">custom AI automations</span> and robust internal tools that connect your scattered data, streamline manual work, and scale with your vision.
         </p>
 
         <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">

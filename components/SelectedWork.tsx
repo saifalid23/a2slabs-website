@@ -53,15 +53,15 @@ export default function SelectedWork() {
                 </pre>
               </div>
 
-              <span className="label-mono mb-2">{work.category}</span>
-              <h3 className="mb-4 font-sans text-lg font-bold tracking-tight text-white transition-colors group-hover:text-[#94A3B8]">
+              <span className="label-mono mb-2 font-medium text-italic text-[#00F0FF]">{work.category}</span>
+              <h3 className="mb-4 font-extrabold text-xl tracking-tight text-white transition-colors group-hover:text-[#00F0FF]">
                 {work.title}
               </h3>
-              <p className="mb-8 text-base font-normal text-[#94A3B8] leading-relaxed flex-1">
+              <p className="mb-8 text-base font-light text-[#94A3B8] leading-relaxed flex-1">
                 {work.description}
               </p>
-              <div className="inline-flex items-center gap-2 font-sans text-base font-bold text-white">
-                <svg className="h-3.5 w-3.5 text-white" fill="currentColor" viewBox="0 0 24 24">
+              <div className="inline-flex items-center gap-2 font-bold text-white text-italic">
+                <svg className="h-3.5 w-3.5 text-[#00F0FF]" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z" />
                 </svg>
                 {work.result}
