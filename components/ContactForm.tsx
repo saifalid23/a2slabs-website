@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { submitContact } from "@/app/actions";
 
 export default function ContactForm() {
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
@@ -22,10 +21,22 @@ export default function ContactForm() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setStatus("loading");
-    const sentData = new FormData(e.currentTarget);
+    
+    const payload = {
+      fullName: formData.fullName,
+      workEmail: formData.workEmail,
+      painPoint: formData.painPoint,
+    };
+
+    const webhookUrl = process.env.NEXT_PUBLIC_WEBHOOK_URL || "https://script.google.com/macros/s/AKfycbxt4HR3CnGlsnSpppdUreoGOa3pVyaa3olLtmltdWyybwfZR8etBo0RdSXxx3AyhIEa/exec";
+
     try {
-      const result = await submitContact(null, sentData);
-      if (result.success) {
+      const response = await fetch(webhookUrl, {
+        method: "POST",
+        body: new URLSearchParams(payload as any),
+      });
+
+      if (response.ok) {
         setStatus("success");
         setFormData({
           fullName: "",

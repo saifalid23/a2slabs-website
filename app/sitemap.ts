@@ -1,5 +1,8 @@
 import { MetadataRoute } from "next";
 
+export const dynamic = "force-static";
+
+
 const siteUrl = "https://www.a2slabs.com";
 
 export default function sitemap(): MetadataRoute.Sitemap {
